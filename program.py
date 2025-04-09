@@ -1,0 +1,8 @@
+print("\t------------------------------------------")
+print("\t|\t STUDENT REGISTRATION\t\t|")
+print("\t|\t\t\t\t\t|")
+print("\t| Name:\t\tSsemuwemba Khassim Ryan\t|")
+print("\t| Gender:\tMale\t\t\t|")
+print("\t| Course:\tBsc Cs\t\t\t|")
+print("\t| Address:\tKibuli\t\t\t|")
+print("\t-----------------------------------------\n") 
