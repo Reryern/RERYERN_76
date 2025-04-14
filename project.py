@@ -16,35 +16,59 @@ inventory = [
     {"name": "rubbers", "qty": 120, "unit_price": 200, "cost_price": 100, "product number": "A05", "brand": "nice"},
 ]
 
-'''def add_item():
-    name = input("Enter item name: ")
+'''def main():
+
+    while True:
+        print("\tWelcome to the main menu.")
+        print("1. Add an item.")
+        print("2. Search for an item.")
+        print("3. Display inventory")
+        print("4. Exit")
+
+        choice = input("Enter an option from above: ").strip()
+        if choice == "1":
+            add_item()
+        elif choice == "4":
+            print("Goodbye")
+        else:
+            print("Invalid option.")'''
+
+def add_item():
+    item_name = input("Enter item name: ").lower()
     quantity = int(input("Enter the quantity: "))
-    price = int(input("Enter the price: "))
-    brand = input("Enter the brand: ")
-    unit_price = int(input("Enter the unit price: "))
-    cost_price = int(input("Enter the cost price: "))
-    product_number = input("Enter the product number: ")
-    item = {
-        "name": name,
-        "quantity": quantity,
-        "price": price,
-        "brand": brand,
-        "unit price": unit_price,
-        "cost price": cost_price,
-        "product number":product_number
-    }
-    inventory.append(item)
-    print(f"The added item is{item}")
-    print(inventory)
-
-    return item
-add_item()'''
-
-def search_item(name):
-    search_item = input("Enter the item you want: ")
     for item in inventory:
-        if search_item == item["name"]:
-            print(f"name: {name}")
-    return search_item
-search_item(search_item)
-    
+        existing_item = item_name in inventory
+        if quantity <= 0:
+            print("Quantity must be higher than 0.")
+            return
+        if existing_item:
+            existing_item["qty"] += quantity
+            print(f"Updated {item_name} and new quantity is {existing_item["qty"]}")
+            break
+        else:
+            brand = input("Enter the brand: ")
+            unit_price = int(input("Enter the unit price: "))
+            cost_price = int(input("Enter the cost price: "))
+            if unit_price > cost_price:
+                print("Cost price cannot be higher than unit price, you will incur losses")
+            else:
+                product_number = input("Enter the product number: ").capitalize()
+                item = {
+                    "name": item_name,
+                    "quantity": quantity,
+                    "brand": brand,
+                    "unit price": unit_price,
+                    "cost price": cost_price,
+                    "product number":product_number
+                }
+        
+            
+                inventory.append(item)
+                print(f"The added item is{item}")
+                print(inventory)
+
+        return item
+add_item()
+
+def search_item():
+    search_item
